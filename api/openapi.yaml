@@ -39080,23 +39080,7 @@ components:
       content:
         application/json:
           schema:
-            additionalProperties: false
-            properties:
-              errors:
-                items:
-                  additionalProperties: false
-                  properties:
-                    reason:
-                      description: A string explaining that the account could not
-                        be canceled because there is an outstanding balance on the
-                        account that must be paid first.
-                      example: We were unable to charge your credit card for services
-                        rendered. We cannot cancel this account until the balance
-                        has been paid.
-                      type: string
-                  type: object
-                type: array
-            type: object
+            $ref: '#/components/schemas/post_cancel_account_409_response'
           x-example:
             x-ref: ../examples/tbd.json
       description: Could not charge the credit card on file.
@@ -39104,25 +39088,7 @@ components:
       content:
         application/json:
           schema:
-            additionalProperties: false
-            properties:
-              warnings:
-                items:
-                  additionalProperties: false
-                  description: An object for describing a single warning associated
-                    with a response.
-                  properties:
-                    details:
-                      description: Specific information related to the warning.
-                      example: Linode 123 could not be rebooted.
-                      type: string
-                    title:
-                      description: The general warning message.
-                      example: Unable to reboot Linode.
-                      type: string
-                  type: object
-                type: array
-            type: object
+            $ref: '#/components/schemas/post_payment_202_response'
       description: |-
         Accepted with warning.
 
@@ -39131,25 +39097,7 @@ components:
       content:
         application/json:
           schema:
-            additionalProperties: false
-            properties:
-              warnings:
-                items:
-                  additionalProperties: false
-                  description: An object for describing a single warning associated
-                    with a response.
-                  properties:
-                    details:
-                      description: Specific information related to the warning.
-                      example: Linode 123 could not be rebooted.
-                      type: string
-                    title:
-                      description: The general warning message.
-                      example: Unable to reboot Linode.
-                      type: string
-                  type: object
-                type: array
-            type: object
+            $ref: '#/components/schemas/post_payment_202_response'
       description: |-
         Request successful. This operation is deprecated and may be removed in a future release.
 
@@ -39158,34 +39106,7 @@ components:
       content:
         application/json:
           schema:
-            additionalProperties: false
-            properties:
-              errors:
-                items:
-                  additionalProperties: false
-                  description: An object for describing a single error that occurred
-                    during the processing of a request.
-                  properties:
-                    field:
-                      description: "The field in the request that caused this error.\
-                        \ This may be a path, separated by periods in the case of\
-                        \ nested fields. In some cases this may come back as `null`\
-                        \ if the error is not specific to any single element of the\
-                        \ request."
-                      example: fieldname
-                      type: string
-                    reason:
-                      description: "What happened to cause this error. In most cases,\
-                        \ this can be fixed immediately by changing the data you sent\
-                        \ in the request, but in some cases you will be instructed\
-                        \ to [Open a support ticket](https://techdocs.akamai.com/linode-api/reference/post-ticket)\
-                        \ or perform some other action before you can complete the\
-                        \ request successfully."
-                      example: fieldname must be a valid value
-                      type: string
-                  type: object
-                type: array
-            type: object
+            $ref: '#/components/schemas/get_account_default_response'
       description: "See [Errors](https://techdocs.akamai.com/linode-api/reference/errors)\
         \ for the range of possible error response codes."
   schemas:
